@@ -5,7 +5,7 @@ class uploadView {
 
             public function generateUploadForm() {
             		return '
-            			
+            			<a href="/">Go Back</a> 
                     <form method="post" >
                         Select image to upload:
                         <input type="file" name="imageUpload" id="imageUpload">
