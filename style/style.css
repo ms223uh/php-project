@@ -1,38 +1,44 @@
-#container{
-    
-    border: solid 2px black;
-    min-height: 500px;
-    height: auto;
-    width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 5px;
-    
+body{
+    background-color: #34495e;
+}
+
+#header {
+    background-color: #2980b9;
+    height: 220px;
+}
+
+#header h2{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 220px;
 }
 
 #navbar {
     padding: 5px;
-    color: black;
+    background-color: #27ae60;
+    color: white;
     text-decoration: none;
-    border-bottom: dashed 2px black;
+    border-top: dashed 2px white;
+    border-bottom: dashed 2px white;
     text-align: center;
-    
 }
 
 #navbar a{
-    
-    font-size: 20px;
-    color: black;
+    font-size: 25px;
+    color: white;
     text-decoration: none;
     text-align: center;
-    
-}
-
-#header {
-    border-bottom: dashed 2px black;
-}
-
-#header h2{
-    
+    height: 100px;
     text-align: center;
+    vertical-align: middle;
+    line-height: 100px;  
+}
+
+#main{
+    height: 535px;
+    background-color: #d35400;
+    margin-left: auto;
+    margin-right: auto;
 }
