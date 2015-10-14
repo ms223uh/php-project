@@ -11,7 +11,7 @@ class LayoutView {
         <head>
           <meta charset="utf-8">
           <title>Image-Upload</title>
-          <link rel="stylesheet" type="text/css" href="../style/style.css">
+          <link rel="stylesheet" type="text/css" href="style/style.css">
         </head>
         <body>
           <h1</h1>
