@@ -23,7 +23,7 @@ public function __construct(imageDAL $idal){
             
           ){
                    
-            if($img["size"] > 1000000){
+            if($img["size"] > 5000000){
                 echo "Det gick ej att ladda upp bilden!";
                 return false;
                 }
@@ -35,7 +35,7 @@ public function __construct(imageDAL $idal){
 
                 $this->idal->insertImage($image);
                         echo "Din bild har laddats upp!";
-                            
+                            header('Location: ?');
                            }
             }
 

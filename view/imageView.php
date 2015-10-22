@@ -24,8 +24,8 @@ class imageView {
         return $this->generateImageList();
     }
 
-        $idal;
-        public function __construct(idal $idal){
+        
+        public function __construct( $idal){
             $this->idal = $idal;
         }
     
@@ -37,7 +37,7 @@ class imageView {
         foreach( $images as $image )
         {
            $imagesForHTML.= 
-              "<div id =imageHolder ><img src='" . $image.getFilename() . "'/> </div>";
+              "<div id =imageHolder ><img src='" . $image->getFilename() . "'/> </div>";
         }
         
         return $imagesForHTML;
