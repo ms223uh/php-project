@@ -10,6 +10,9 @@ class imageView {
             <a href="?upload"><img src="imageStyle/upload.png" width="25" height="25px">Upload New Image</a> 
             </div>
             <div id="main">
+
+                '. self::renderImages() .'
+
         </div>
         
         ' 
@@ -20,7 +23,25 @@ class imageView {
     public function response(){
         return $this->generateImageList();
     }
+
+        $idal;
+        public function __construct(idal $idal){
+            $this->idal = $idal;
+        }
     
-    
+
+    public function renderImages(){
+
+        $images =  $this->idal->getImages();
+        $imagesForHTML = "";
+        foreach( $images as $image )
+        {
+           $imagesForHTML.= 
+              "<div id =imageHolder ><img src='" . $image.getFilename() . "'/> </div>";
+        }
+        
+        return $imagesForHTML;
+       
+    }
     
 }

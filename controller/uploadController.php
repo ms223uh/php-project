@@ -6,17 +6,13 @@ class uploadController {
             
                 $this->uploadView = $uploadView;
                 $this->uploadModel = $uploadModel;
-                $this-init();
+            
 
         }
 
         public function init(){
         
-                if($this->uploadView->userWannaUpload()){
-                
-                        
-
-                }
+                $this->uploadModel->rules($this->uploadView->getImg());
 
         }
 

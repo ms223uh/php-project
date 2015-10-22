@@ -1,33 +1,48 @@
 <?php
 
 class uploadModel {
+
+private $idal;
+
+public function __construct(imageDAL $idal){
+    $this->idal = $idal;
     
-    public function rules(){
-        
-            $uploadURL = "/uImages/";
+}    
+
+
+    public function rules($img){
+                
+            $uploadDir = 'uImages/';
+            $uploadImage = $uploadDir . md5(time()) .".". pathinfo($img['name'], 
+            PATHINFO_EXTENSION);
 
         if(
-            ($_FILES["files"]["type"] == "image/gif")
-            ||($_FILES["files"]["type"] == "image/jpeg")
-            ||($_FILES["files"]["type"] == "image/png")
+            ($img["type"] == "image/gif")
+            ||($img["type"] == "image/jpeg")
+            ||($img["type"] == "image/png")
+            
           ){
                    
-                        if($FILES["file"]["size"] < 100000){
-                            return false;
-                    }
-  
-                    else {
-                            if(move_uploaded_file($_FILE["file"]["tmpFile"],
-                                $uploadURL . $_FILES["file"]["name"])){
-                                    return true;
-                                }
-                         }
+            if($img["size"] > 1000000){
+                echo "Det gick ej att ladda upp bilden!";
+                return false;
                 }
-                
-        
-    }
-    
+                else { 
+
+                move_uploaded_file($img['tmp_name'],$uploadImage );
+                $image = new image("Titel som inte finns än", $uploadImage);
 
 
-    
+                $this->idal->insertImage($image);
+                        echo "Din bild har laddats upp!";
+                            
+                           }
+            }
+
+     } 
+
 }
+    
+
+
+    

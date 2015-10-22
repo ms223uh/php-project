@@ -43,8 +43,28 @@ body{
 }
 
 #main{
-    height: 615px;
+    height: auto;
+    min-height: 333px;
     background-color: #d35400;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imageHolder {
+    
+    width: 450px;
+    height: 450px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -65px;
+    
+}
+
+#imageHolder img{
+    
+    width: 400px;
+    height: 400px;
     margin-left: auto;
     margin-right: auto;
 }
