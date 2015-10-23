@@ -10,7 +10,7 @@ public function __construct(imageDAL $idal){
 }    
 
 
-    public function rules($img){
+    public function rules($img,$title){
                 
             $uploadDir = 'uImages/';
             $uploadImage = md5(time()) .".". pathinfo($img['name'], 
@@ -30,7 +30,7 @@ public function __construct(imageDAL $idal){
                 else { 
 
                 move_uploaded_file($img['tmp_name'],$uploadDir . $uploadImage );
-                $image = new image("Titel som inte finns än", $uploadImage, $uploadDir . $uploadImage);
+                $image = new image($title, $uploadImage, $uploadDir . $uploadImage);
 
 
                 $this->idal->insertImage($image);

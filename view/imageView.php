@@ -36,11 +36,22 @@ class imageView {
 
         $images =  $this->idal->getImages();
         $imagesForHTML = "";
-        foreach( $images as $image )
+        for( $i = count($images) - 1; $i>=0; $i-- )
         {
+            $image = $images[$i];
             $r = time() + rand(0,99999999);
            $imagesForHTML.= 
-              "<div class='imageHolder' id='{$image->getFilename()}' ><a href='{$image->getPath()}'><img src='{$image->getPath()}'/></a> <a href='?vote=up&image={$image->getFilename()}&r=$r#{$image->getFilename()}'>UP </a> <span class='score'>{$image->getScore()}</span> <a href='?vote=down&image={$image->getFilename()}&r=$r#{$image->getFilename()}'>DOWN </a>
+              "<div class='imageHolder' id='{$image->getFilename()}' >
+              <div class='title'>{$image->getTitle()}</div>
+              <img src='{$image->getPath()}'/>
+              <div class='imageHolderStuff'>
+              <a href='?vote=up&image={$image->getFilename()}&r=$r#{$image->getFilename()}'>
+              <img src=".'imageStyle/happy.png'."></a>              
+              <span class='score'>{$image->getScore()}</span>
+              <a href='?vote=down&image={$image->getFilename()}&r=$r#{$image->getFilename()}'>
+              <img src=".'imageStyle/unhappy.png'."></a>          
+              <a href='{$image->getPath()}'><img src=".'imageStyle/eye.png'."></a>
+          </div>
               </div>";
         }
         

@@ -12,7 +12,7 @@ class uploadController {
 
         public function init(){
         
-                $this->uploadModel->rules($this->uploadView->getImg());
+                $this->uploadModel->rules($this->uploadView->getImg(),$this->uploadView->getImgName());
 
         }
 

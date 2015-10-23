@@ -28,7 +28,7 @@ class image {
     
     public function getTitle(){
 
-        return $this->tile;
+        return $this->title;
     }
 
     public function getFilename(){

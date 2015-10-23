@@ -51,17 +51,43 @@ body{
 }
 
 .imageHolder {
-    padding: 10px;
+  //  padding: 20px;
     margin-left: auto;
     margin-right: auto;
-    //margin-bottom: -65px;
+    border: dashed 2px white;
     display: inline-block;
+    margin-top: 25px;
+    margin-left: 50px;
 }
 
 .imageHolder img{
     
-    width: 400px;
-    height: 400px;
+    width: 275px;
+    height: 190px;
+   // border: dashed 2px white;
     margin-left: auto;
     margin-right: auto;
+    border-bottom: dashed 2px white;
 }
+
+.imageHolderStuff {
+    text-align: center;
+   // border-top: dashed 2px white;
+    
+}
+
+.imageHolderStuff img{
+    width: 20px;
+    height: 18px;
+    border: none;
+    margin-left: 20px;
+    
+}
+
+.score {
+    color: #fff;
+    font-weight: bolder;
+    margin-left: 20px;
+    
+}
+
