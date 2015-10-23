@@ -50,18 +50,15 @@ body{
     margin-right: auto;
 }
 
-#imageHolder {
-    
-    width: 450px;
-    height: 450px;
-    padding: 20px;
+.imageHolder {
+    padding: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -65px;
-    
+    //margin-bottom: -65px;
+    display: inline-block;
 }
 
-#imageHolder img{
+.imageHolder img{
     
     width: 400px;
     height: 400px;

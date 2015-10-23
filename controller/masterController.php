@@ -17,13 +17,10 @@ class masterController{
     
     public function __Construct(){
           
-        $uri = $_SERVER["REQUEST_URI"];
-        $uri = explode("?",$uri);
-        
         $idal = new imageDAL();
 
 
-        if (count($uri) > 1 && $uri[1] == "upload") {
+        if (isset($_GET["upload"])) {
 
             $uv = new uploadView($idal);
             $lv = new layoutView();
@@ -35,6 +32,21 @@ class masterController{
 
             $iv = new imageView($idal);
             $lv = new layoutView();
+             
+            if($iv->getVote()){
+                $image = $idal->getImageByFilename($iv->getVoteImage());
+                if($image != null){
+                    if($iv->getVoteType() == "up"){
+                        $image->upvote();
+                    }
+                    else {
+                        $image->downvote();
+                    }
+                    
+                    $idal->save();
+                }
+            }
+             
             $lv->render($iv);
 
          }

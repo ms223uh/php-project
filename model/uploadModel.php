@@ -13,7 +13,7 @@ public function __construct(imageDAL $idal){
     public function rules($img){
                 
             $uploadDir = 'uImages/';
-            $uploadImage = $uploadDir . md5(time()) .".". pathinfo($img['name'], 
+            $uploadImage = md5(time()) .".". pathinfo($img['name'], 
             PATHINFO_EXTENSION);
 
         if(
@@ -29,13 +29,13 @@ public function __construct(imageDAL $idal){
                 }
                 else { 
 
-                move_uploaded_file($img['tmp_name'],$uploadImage );
-                $image = new image("Titel som inte finns än", $uploadImage);
+                move_uploaded_file($img['tmp_name'],$uploadDir . $uploadImage );
+                $image = new image("Titel som inte finns än", $uploadImage, $uploadDir . $uploadImage);
 
 
                 $this->idal->insertImage($image);
                         echo "Din bild har laddats upp!";
-                            header('Location: ?');
+                            header('Location: ?#'.$image->getFilename());
                            }
             }
 

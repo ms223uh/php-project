@@ -4,11 +4,26 @@ class image {
     
     private $title;
     private $filename;
-    private $score;
+    private $path;
+    private $score = 0;
     
-    public function __construct($title, $filename){
+    public function __construct($title, $filename, $path){
         $this->title = $title;
         $this->filename = $filename;
+        $this->path = $path;
+    }
+    
+    
+    public function __wakeup()
+    {
+        if (!isset($this->score))
+        {
+            $this->score = 0;
+        }
+        if (!isset($this->path))
+        {
+            $this->path = $this->filename;
+        }
     }
     
     public function getTitle(){
@@ -19,6 +34,11 @@ class image {
     public function getFilename(){
 
         return $this->filename;
+    }
+    
+    public function getPath(){
+
+        return $this->path;
     }
 
     public function getScore(){
