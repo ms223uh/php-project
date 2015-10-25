@@ -16,10 +16,11 @@ public function rules($img,$title){
    
     
     $this->message = "";    
-  
-    var_dump($img);
-    var_dump($img['type']);
-    if($img['type'] != "application/javascript"){
+
+    if(($img["type"] == "image/gif")
+            ||($img["type"] == "image/jpeg")
+            ||($img["type"] == "image/png")
+      ){
                  
         if($img["size"] > 5000000){
            $this->message = "storlek fel";  
@@ -32,11 +33,12 @@ public function rules($img,$title){
             $this->message = "titel fel";
            return false;
 
-       }
+         }
        
-        }
-    else{
-$this->message = "fel format";
+            }
+        else{
+        $this->message = "fel format";
+        return false;
     }
 
       
