@@ -1,18 +1,27 @@
 <?php
 
-class uploadController {
+class uploadController 
+{
 
-        public function __construct(uploadView $uploadView, uploadModel $uploadModel){
+        public function __construct(uploadView $uploadView, uploadModel $uploadModel)
+        {
             
                 $this->uploadView = $uploadView;
                 $this->uploadModel = $uploadModel;
-            
-
         }
 
-        public function init(){
+        public function init()
+        {
         
-                $this->uploadModel->rules($this->uploadView->getImg(),$this->uploadView->getImgName());
+    if($this->uploadModel->rules($this->uploadView->getImg(),$this->uploadView->getImgName()))
+    {
+    $this->uploadModel->postImage($this->uploadView->getImg(),
+                                $this->uploadView->getImgName());   
+    }
+    else
+    {
+        $this->uploadView->setMessage($this->uploadModel->getMessage());
+    }
 
         }
 

@@ -3,6 +3,7 @@
 class uploadModel {
 
 private $idal;
+private $message;
 
 public function __construct(imageDAL $idal){
     $this->idal = $idal;
@@ -10,36 +11,57 @@ public function __construct(imageDAL $idal){
 }    
 
 
-    public function rules($img,$title){
-                
-            $uploadDir = 'uImages/';
-            $uploadImage = md5(time()) .".". pathinfo($img['name'], 
-            PATHINFO_EXTENSION);
+public function rules($img,$title){
+    
+   
+    
+    $this->message = "";    
+  
+    
+    if(
 
-        if(
             ($img["type"] == "image/gif")
             ||($img["type"] == "image/jpeg")
             ||($img["type"] == "image/png")
+
+      ){
+                 
+        if($img["size"] > 5000000){
+           $this->message = "storlek fel";  
             
-          ){
-                   
-            if($img["size"] > 5000000){
-                echo "Det gick ej att ladda upp bilden!";
-                return false;
-                }
-                else { 
+            return false;
+        }
+        
+       if(strlen($title) < 5){
+           
+            $this->message = "titel fel";
+           return false;
 
-                move_uploaded_file($img['tmp_name'],$uploadDir . $uploadImage );
-                $image = new image($title, $uploadImage, $uploadDir . $uploadImage);
+       }
+       
+    }
+   return true;
+} 
+    
+public function postImage($img,$title)
+{
+    $uploadImage = md5(time()) .".". pathinfo($img['name'], 
+    PATHINFO_EXTENSION);
+        
+         $uploadDir = 'uImages/';
+        move_uploaded_file($img['tmp_name'],$uploadDir . $uploadImage );
+        $image = new image($title, $uploadImage, $uploadDir . $uploadImage);
 
 
-                $this->idal->insertImage($image);
-                        echo "Din bild har laddats upp!";
-                            header('Location: ?#'.$image->getFilename());
-                           }
-            }
+        $this->idal->insertImage($image);
+        echo "Success!";
+       // header('Location: ?#'.$image->getFilename());
+}
 
-     } 
+public function getMessage()
+{
+    return $this->message;
+}
 
 }
     

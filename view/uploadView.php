@@ -5,11 +5,21 @@ class uploadView {
                 private static $uploadFile = 'uploadView::uploadFile';
                 private static $imageID = 'uploadView::imageID';
                 private static $imageName = 'uploadView::imageName';
+                private $message;                
 
+                   public function __construct(uploadModel $upModel){
+                       $this->upModel = $upModel;
+                       $message = "";
+                       $this->message = $message;
+                   }
+                  
 
             public function generateUploadForm() {
+                
             		return '
+
             			<a href="?">Go Back</a> 
+  <p id="message">'.$this->message.'</p>
                     <form enctype="multipart/form-data"  method="POST" action="?upload" >
                         Title: <input  name="' . self::$imageName . '">
                             <br>
@@ -17,10 +27,16 @@ class uploadView {
                         <input type="file" name="' . self::$imageID . '">
                         <input type="submit" value="Upload Image" name="' . self::$uploadFile . '">
                     </form>
-                    
+                   
             		';
             	}
             	
+                public function setMessage($message)
+                {
+                    
+                    $this->message = $message;
+                }
+    
             	public function response(){
                     return $this->generateUploadForm();
                 }

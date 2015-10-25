@@ -9,7 +9,7 @@ body{
 }
 
 #header {
-    background-color: #2980b9;
+    background-color: #07112A;
     height: 220px;
 }
 
@@ -23,7 +23,7 @@ body{
 
 #navbar {
     padding: 5px;
-    background-color: #27ae60;
+    background-color: #020612;
     color: white;
     text-decoration: none;
     border-top: dashed 2px white;
@@ -44,8 +44,8 @@ body{
 
 #main{
     height: auto;
-    min-height: 333px;
-    background-color: #d35400;
+    min-height: 350px;
+    background-color: #07112A;
     margin-left: auto;
     margin-right: auto;
 }
@@ -89,5 +89,13 @@ body{
     font-weight: bolder;
     margin-left: 20px;
     
+}
+
+.title{
+text-align: center;
+color: #fff;
+font-size: 22px;
+
+border-bottom: dashed 2px white;
 }
 

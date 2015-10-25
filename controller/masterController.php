@@ -18,13 +18,27 @@ class masterController{
     public function __Construct(){
           
         $idal = new imageDAL();
-
+        
 
         if (isset($_GET["upload"])) {
-
-            $uv = new uploadView($idal);
+            
+            $um = new uploadModel($idal);
+            $uv = new uploadView($um);
             $lv = new layoutView();
+          
+            
+             if($uv->userWannaUpload()){
+
+                $um = new uploadModel($idal);
+                $uc = new uploadController($uv, $um); 
+
+                $uc->init();
+                $lv->render($uv);
+        }
+        else
+        {
             $lv->render($uv);
+        }
 
          }
 
@@ -50,16 +64,10 @@ class masterController{
             $lv->render($iv);
 
          }
-            $uv = new uploadView();
+            $um = new uploadModel($idal);
+            $uv = new uploadView($um);
 
-        if($uv->userWannaUpload()){
-
-                $um = new uploadModel($idal);
-                $uc = new uploadController($uv, $um); 
-
-                $uc->init();
-
-        }
+       
 
     }
     
