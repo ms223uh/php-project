@@ -17,14 +17,9 @@ public function rules($img,$title){
     
     $this->message = "";    
   
-    
-    if(
-
-            ($img["type"] == "image/gif")
-            ||($img["type"] == "image/jpeg")
-            ||($img["type"] == "image/png")
-
-      ){
+    var_dump($img);
+    var_dump($img['type']);
+    if($img['type'] != "application/javascript"){
                  
         if($img["size"] > 5000000){
            $this->message = "storlek fel";  
@@ -39,7 +34,12 @@ public function rules($img,$title){
 
        }
        
+        }
+    else{
+$this->message = "fel format";
     }
+
+      
    return true;
 } 
     
