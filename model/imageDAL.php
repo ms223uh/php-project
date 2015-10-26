@@ -32,6 +32,7 @@ class imageDAL {
     public function getImages(){
         return $this->images;
     }
+    
 
     public function insertImage($image){
         array_push($this->images, $image);
@@ -52,4 +53,6 @@ class imageDAL {
         
         return null;
     }
+    
 }
+    

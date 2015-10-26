@@ -17,16 +17,39 @@ class uploadView {
             public function generateUploadForm() {
                 
             		return '
-
-            			<a href="?">Go Back</a> 
-  <p id="message">'.$this->message.'</p>
+                            
+       <div id="header"><h2>ImageKing</h2></div>
+            <div id="navbar">
+            <a href="?"><img src="imageStyle/back.png" width="25" height="25px"> Go Back</a> 
+            </div>
+            <div id="main">
+            <div id="uploadMain">
+                 <div class="errorMess"> <p id="message">'.$this->message.'</p> </div>
                     <form enctype="multipart/form-data"  method="POST" action="?upload" >
-                        Title: <input  name="' . self::$imageName . '">
-                            <br>
-                        Select image to upload:
-                        <input type="file" name="' . self::$imageID . '">
-                        <input type="submit" value="Upload Image" name="' . self::$uploadFile . '">
+                        <br>
+                       Title
+                        <br>
+                        <input  name="' . self::$imageName . '">
+                        <br>
+                        <br>
+
+                        Select image to upload
+
+                        <input class="button" type="file" name="' . self::$imageID . '">
+
+                        <br>
+                        <br>
+
+                        <input   type="submit" value="Upload Image" name="' .                                                self::$uploadFile . '">
+
                     </form>
+                    </div>
+        </div>
+
+
+
+            			
+
                    
             		';
             	}

@@ -4,13 +4,17 @@
 }
 
 body{
-
+background-color: #07112A;
     
 }
 
 #header {
     background-color: #07112A;
     height: 220px;
+}
+
+#main{
+
 }
 
 #header h2{
@@ -57,7 +61,8 @@ body{
     border: dashed 2px white;
     display: inline-block;
     margin-top: 25px;
-    margin-left: 50px;
+    margin-left: 45px;
+
 }
 
 .imageHolder img{
@@ -95,7 +100,34 @@ body{
 text-align: center;
 color: #fff;
 font-size: 22px;
-
 border-bottom: dashed 2px white;
 }
+
+.errorMess{
+margin-top: 10px;
+color: red;
+font-size: 18px;
+}
+
+#uploadMain{
+margin: 25px;
+height: 215px;
+width: 275px;
+color: white;
+border: dashed 2px white;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+}
+
+.button{
+
+margin-left: 60px;
+}
+
+
+
+
+
+
 

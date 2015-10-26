@@ -23,21 +23,21 @@ public function rules($img,$title){
       ){
                  
         if($img["size"] > 5000000){
-           $this->message = "storlek fel";  
+           $this->message = "Wrong size, we only allow 5MB/file!";  
             
             return false;
         }
         
        if(strlen($title) < 5){
            
-            $this->message = "titel fel";
+            $this->message = "You have to enter a title that contain more than 5 character!";
            return false;
 
          }
        
             }
         else{
-        $this->message = "fel format";
+        $this->message = "We only support: .gif, .jpeg & .png!";
         return false;
     }
 
@@ -57,7 +57,7 @@ public function postImage($img,$title)
 
         $this->idal->insertImage($image);
         echo "Success!";
-       // header('Location: ?#'.$image->getFilename());
+        header('Location: ?#'.$image->getFilename());
 }
 
 public function getMessage()
