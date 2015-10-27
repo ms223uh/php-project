@@ -35,7 +35,7 @@ class uploadView {
 
                         Select image to upload
 
-                        <input class="button" type="file" name="' . self::$imageID . '">
+                        <input class="button" accept="image/*" type="file" name="' . self::$imageID . '">
 
                         <br>
                         <br>

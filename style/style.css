@@ -40,10 +40,26 @@ background-color: #07112A;
     color: white;
     text-decoration: none;
     text-align: center;
-    height: 100px;
+   // height: 100px;
     text-align: center;
     vertical-align: middle;
     line-height: 100px;  
+margin: 10px;
+}
+
+#navbarSort{
+    margin-top: -55px;
+}
+
+#navbarSort a{
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px; 
+    
 }
 
 #main{
@@ -58,7 +74,7 @@ background-color: #07112A;
   //  padding: 20px;
     margin-left: auto;
     margin-right: auto;
-    border: dashed 2px white;
+    border: dashed 2px rgba(255,255,255,0.35);
     display: inline-block;
     margin-top: 25px;
     margin-left: 45px;
@@ -73,6 +89,7 @@ background-color: #07112A;
     margin-left: auto;
     margin-right: auto;
     border-bottom: dashed 2px white;
+    border-bottom: dashed 2px rgba(255,255,255,0.35);
 }
 
 .imageHolderStuff {
@@ -101,6 +118,7 @@ text-align: center;
 color: #fff;
 font-size: 22px;
 border-bottom: dashed 2px white;
+border-bottom: dashed 2px rgba(255,255,255,0.35);
 }
 
 .errorMess{
@@ -114,7 +132,7 @@ margin: 25px;
 height: 215px;
 width: 275px;
 color: white;
-border: dashed 2px white;
+border: dashed 2px rgba(255,255,255,0.35);
 margin-left: auto;
 margin-right: auto;
 text-align: center;
@@ -123,6 +141,11 @@ text-align: center;
 .button{
 
 margin-left: 60px;
+}
+
+.voted
+{
+    opacity: 0.3;
 }
 
 
