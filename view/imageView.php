@@ -33,16 +33,22 @@ class imageView {
             $this->idal = $idal;
         }
     
+    public function CompareScores($a,$b)
+    {
+        if ($a->getScore() == $b->getScore())
+            return 0;
+        return $a->getScore() < $b->getScore() ? -1 : 1;
+    }
+    
     public function renderImages(){
         $images =  $this->idal->getImages();
         $imagesForHTML = "";
+        
+        //phpinfo();
+        
         if (isset($_GET["sort"]) && $_GET["sort"] == "true")
         {
-            usort($images,function($a,$b) {
-                if ($a->getScore() == $b->getScore())
-                    return 0;
-                return $a->getScore() < $b->getScore() ? -1 : 1;
-            });
+            usort($images,array($this, "CompareScores"));
         }
         
         
@@ -52,7 +58,7 @@ class imageView {
         }
         elseif (isset($_COOKIE["votes"]))
         {
-            $votescookie = unserialize($_COOKIE["votes"]);
+            $votescookie = json_decode(stripslashes($_COOKIE["votes"]),true);
         }
         else
         {
@@ -88,11 +94,11 @@ class imageView {
         {
             if (isset($_COOKIE["votes"]))
             {
-                $votescookie = unserialize($_COOKIE["votes"]);
+                $votescookie = json_decode(stripslashes($_COOKIE["votes"]),true);
             }
             else
             {
-                $votescookie = array();
+                $votescookie = array("dummy"=>true);
             }
             $this->vote = $_GET["vote"];
             $this->voteimage = $_GET["image"];
@@ -100,13 +106,13 @@ class imageView {
             {
                 if (isset($votescookie[$this->voteimage]))
                 {
-                    setcookie("votes",serialize($votescookie));
+                    setcookie("votes",json_encode($votescookie),time()+60*60*24*365);
                     $this->votedimages = $votescookie;
                     return false;
                 }
                 $votescookie[$this->voteimage] = true;
             }
-            setcookie("votes",serialize($votescookie));
+            setcookie("votes",json_encode($votescookie),time()+60*60*24*365);
             $this->votedimages = $votescookie;
             return true;
         }
