@@ -10,10 +10,10 @@ class imageView {
         <div id="header"><h2>ImageKing</h2></div>
             <div id="navbar">
             
-            <a href="?upload"><img src="imageStyle/upload.png" width="25" height="25px"> Upload New Image</a> 
+            <a href="?upload"><img src="imageStyle/upload.png" style="width: 25px; height: 25px" alt ="Upload New Image"> Upload New Image</a> 
 <div id="navbarSort">
-            <a href="?sort=true"><img src="imageStyle/score.png" width="15" height="15px"> Sort by Score</a>
-            <a href="?sort=false"><img src="imageStyle/age.png" width="15" height="15px"> Sort by Age</a>
+            <a href="?sort=true"><img src="imageStyle/score.png" style="width: 15px; height: 15px" alt ="Sort by Score"> Sort by Score</a>
+            <a href="?sort=false"><img src="imageStyle/age.png" style="width: 15px; height: 15px" alt ="Sort by Age"> Sort by Age</a>
 </div>
             </div>
             <div id="main">
@@ -73,14 +73,14 @@ class imageView {
            $imagesForHTML.= 
               "<div class='imageHolder' id='{$image->getFilename()}' >
               <div class='title'>{$image->getTitle()}</div>
-              <img src='{$image->getPath()}'/>
+              <img src='{$image->getPath()}' alt ='{$image->getTitle()}'/>
               <div class='imageHolderStuff'>
               <a href='?vote=up&image={$image->getFilename()}&r=$r#{$image->getFilename()}'>
-              <img class='$voted' src='imageStyle/happy.png'></a>              
+              <img class='$voted' src='imageStyle/happy.png' alt ='upvote'></a>              
               <span class='score'>{$image->getScore()}</span>
               <a href='?vote=down&image={$image->getFilename()}&r=$r#{$image->getFilename()}'>
-              <img class='$voted' src=".'imageStyle/unhappy.png'."></a>          
-              <a href='{$image->getPath()}' target='_blank'><img src=".'imageStyle/eye.png'."></a>
+              <img class='$voted' src=".'imageStyle/unhappy.png'." alt ='downvote'></a>          
+              <a href='{$image->getPath()}' target='_blank'><img src=".'imageStyle/eye.png'." alt ='open in new tab'></a>
           </div>
               </div>";
         }

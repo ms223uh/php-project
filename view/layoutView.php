@@ -14,7 +14,7 @@ class LayoutView {
           <link rel="stylesheet" type="text/css" href="style/style.css">
         </head>
         <body>
-          <h1></h1>
+         
           
           <div class="container">
               ' . $view->response() . '
