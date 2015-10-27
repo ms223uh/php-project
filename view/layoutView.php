@@ -10,7 +10,7 @@ class LayoutView {
       <html>
         <head>
           <meta charset="utf-8">
-          <title>Image-Upload</title>
+          <title>ImageKing</title>
           <link rel="stylesheet" type="text/css" href="style/style.css">
         </head>
         <body>
